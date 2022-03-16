@@ -1,3 +1,3 @@
-# correspondence_chess
+# Correspondence Chess
 
 Play correspondence chess on your device.
