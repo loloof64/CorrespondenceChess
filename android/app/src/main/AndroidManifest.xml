@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.loloof64.correspondence_chess">
    <application
-        android:label="correspondence_chess"
+        android:label="@string/app_title"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
