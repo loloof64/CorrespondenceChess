@@ -7,7 +7,7 @@ class AuthenticationService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   AppUser? _userFromFirebase(User? user) {
-    return user != null ? AppUser(uid: user.uid) : null;
+    return user != null ? AppUser(uid: user.uid, email: user.email!) : null;
   }
 
   String _authExceptionToMessage(

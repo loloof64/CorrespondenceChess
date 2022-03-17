@@ -18,4 +18,4 @@ firebase:
     already_registered_user: "A user with the same email is already registered !"
     wrong_password: "Wrong password !"
 home_screen:
-  title: "Your space"
+  title: "Your space ({nickname})"

@@ -18,4 +18,4 @@ firebase:
     already_registered_user: "Un(e) utilisateur(trice) est déjà enregistré(e) avec le même email !"
     wrong_password: "Mot de passe incorrect !"
 home_screen:
-  title: "Votre espace"
+  title: "Votre espace ({nickname})"
