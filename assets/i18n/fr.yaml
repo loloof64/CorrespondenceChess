@@ -1,8 +1,5 @@
 app:
-  title:  "Echecs par correspondance"
-  home: "Accueil"
-main_screen:
-  access_user_page: "Acceder au contenu"
+  title: "Echecs par correspondance"
 signin_screen:
   title: "Connexion"
   register_field: "S'enregister"
@@ -20,3 +17,5 @@ firebase:
     not_registered: "Vous ne figurez pas dans la liste des utilisateurs enregistrés !"
     already_registered_user: "Un(e) utilisateur(trice) est déjà enregistré(e) avec le même email !"
     wrong_password: "Mot de passe incorrect !"
+home_screen:
+  title: "Votre espace"

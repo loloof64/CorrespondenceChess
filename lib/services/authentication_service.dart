@@ -3,8 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 
-final errorRegex = RegExp(r"\[firebase_auth/(.*)\](.*)");
-
 class AuthenticationService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -13,13 +11,10 @@ class AuthenticationService {
   }
 
   String _authExceptionToMessage(
-      {required Object exception, required BuildContext context}) {
-    final message = exception.toString();
-    final match = errorRegex.firstMatch(message);
-    final type = match?.group(1);
-    final detail = match?.group(2)?.trim();
-    if (type == null || detail == null) return message;
-    switch (type) {
+      {required FirebaseAuthException exception,
+      required BuildContext context}) {
+    final String detail = exception.message ?? '';
+    switch (exception.code) {
       case 'invalid-email':
         return FlutterI18n.translate(
           context,
@@ -42,10 +37,10 @@ class AuthenticationService {
               'firebase.errors.empty_field',
             );
           default:
-            return message;
+            return detail;
         }
       default:
-        return message;
+        return detail;
     }
   }
 
@@ -62,7 +57,7 @@ class AuthenticationService {
           email: email, password: password);
       User? user = result.user;
       return _userFromFirebase(user);
-    } catch (exception) {
+    } on FirebaseAuthException catch (exception) {
       return _authExceptionToMessage(exception: exception, context: context);
     }
   }
@@ -79,7 +74,7 @@ class AuthenticationService {
       // TODO store new user in Firestore
 
       return _userFromFirebase(user);
-    } catch (exception) {
+    } on FirebaseAuthException catch (exception) {
       return _authExceptionToMessage(exception: exception, context: context);
     }
   }
@@ -87,7 +82,7 @@ class AuthenticationService {
   Future signOut({required BuildContext context}) async {
     try {
       return await _auth.signOut();
-    } catch (exception) {
+    } on FirebaseAuthException catch (exception) {
       return _authExceptionToMessage(exception: exception, context: context);
     }
   }

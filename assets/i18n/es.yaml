@@ -1,8 +1,5 @@
 app:
   title:  "Ajedrez por correspondencia"
-  home: "Bienvenida"
-main_screen:
-  access_user_page: "Accede a tu contenido"
 signin_screen:
   title: "Conexión"
   register_field: "Registrarse"
@@ -20,3 +17,5 @@ firebase:
     not_registered: "¡No está registrado en los usuarios de la aplicación!"
     already_registered_user: "¡Un usuario con el mismo correo electrónico ya está registrado!"
     wrong_password: "¡Contraseña incorrecta!"
+home_screen:
+  title: "Su espacio"

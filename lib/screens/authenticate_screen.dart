@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import '../../components/password_field.dart';
-import 'package:flutter_i18n/widgets/I18nText.dart';
-import '../../models/user.dart';
-import '../../services/authentication_service.dart';
+import '../components/password_field.dart';
+import '../services/authentication_service.dart';
 
 class AuthenticateScreen extends StatefulWidget {
   const AuthenticateScreen({Key? key}) : super(key: key);
