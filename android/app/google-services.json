@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "561531643235",
+    "project_id": "correspondence-chess",
+    "storage_bucket": "correspondence-chess.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561531643235:android:59b58433bc6e480f7f1f56",
+        "android_client_info": {
+          "package_name": "com.loloof64.correspondence_chess"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561531643235-dr6blo25jrmhbvpjmlrrmpfaa9mue8sn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg5WcZoEbkYdK8fMqgilAZEFHIdKTGfJI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561531643235-dr6blo25jrmhbvpjmlrrmpfaa9mue8sn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

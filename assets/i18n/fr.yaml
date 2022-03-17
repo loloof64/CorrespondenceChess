@@ -1,2 +1,22 @@
 app:
   title:  "Echecs par correspondance"
+  home: "Accueil"
+main_screen:
+  access_user_page: "Acceder au contenu"
+signin_screen:
+  title: "Connexion"
+  register_field: "S'enregister"
+  email_field: "Email"
+  email_hint: "Votre email"
+  password_field: "Mot de passe"
+  password_hint: "Votre mot de passe"
+  connect: "Se connecter"
+  register: "S'enregistrer"
+firebase:
+  errors:
+    empty_field: "Champ vide !"
+    invalid_email: "Email invalide !"
+    weak_password: "Le mot de passe doit contenir au moins 6 caractères !"
+    not_registered: "Vous ne figurez pas dans la liste des utilisateurs enregistrés !"
+    already_registered_user: "Un(e) utilisateur(trice) est déjà enregistré(e) avec le même email !"
+    wrong_password: "Mot de passe incorrect !"

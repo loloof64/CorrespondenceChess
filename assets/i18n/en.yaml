@@ -1,2 +1,22 @@
 app:
   title:  "Correspondence chess"
+  home: "Home"
+main_screen:
+  access_user_page: "Access your content"
+signin_screen:
+  title: "Connection"
+  register_field: "Register"
+  email_field: "Email"
+  email_hint: "Your email"
+  password_field: "Password"
+  password_hint: "Your password"
+  connect: "Connect"
+  register: "Register"
+firebase:
+  errors:
+    empty_field: "Empty field !"
+    invalid_email: "Invalid email !"
+    weak_password: "Password must have at least 6 characters !"
+    not_registered: "You are not registered in application's users !"
+    already_registered_user: "A user with the same email is already registered !"
+    wrong_password: "Wrong password !"
