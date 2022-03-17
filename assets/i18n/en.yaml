@@ -1,5 +1,8 @@
 app:
   title: "Correspondence chess"
+button:
+  ok: "OK"
+  cancel: "Cancel"
 signin_screen:
   title: "Connection"
   register_field: "Register"
@@ -19,3 +22,5 @@ firebase:
     wrong_password: "Wrong password !"
 home_screen:
   title: "Your space ({nickname})"
+  logout_confirmation_title: "Logout ?"
+  logout_confirmation_message: "Do you want to log out ?"

@@ -1,5 +1,8 @@
 app:
   title:  "Ajedrez por correspondencia"
+button:
+  ok: "De acuerdo"
+  cancel: "Anular"
 signin_screen:
   title: "Conexión"
   register_field: "Registrarse"
@@ -19,3 +22,5 @@ firebase:
     wrong_password: "¡Contraseña incorrecta!"
 home_screen:
   title: "Su espacio ({nickname})"
+  logout_confirmation_title: "¿Cerrar sesión?"
+  logout_confirmation_message: "¿Desea cerrar sesión?"

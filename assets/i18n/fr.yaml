@@ -1,5 +1,8 @@
 app:
   title: "Echecs par correspondance"
+button:
+  ok: "D'accord"
+  cancel: "Annuler"
 signin_screen:
   title: "Connexion"
   register_field: "S'enregister"
@@ -19,3 +22,5 @@ firebase:
     wrong_password: "Mot de passe incorrect !"
 home_screen:
   title: "Votre espace ({nickname})"
+  logout_confirmation_title: "Déconnexion ?"
+  logout_confirmation_message: "Souhaitez-vous vous déconnecter ?"

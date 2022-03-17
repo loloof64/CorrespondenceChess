@@ -79,11 +79,11 @@ class AuthenticationService {
     }
   }
 
-  Future signOut({required BuildContext context}) async {
+  Future signOut() async {
     try {
       return await _auth.signOut();
     } on FirebaseAuthException catch (exception) {
-      return _authExceptionToMessage(exception: exception, context: context);
+      return exception.message;
     }
   }
 }
