@@ -16,6 +16,7 @@ signin_screen:
   pseudonym_hint: "Seudónimo"
   pseudonym_too_short: "¡El seudónimo debe tener al menos 4 caracteres!"
   pseudonym_alphanumeric_required: "¡El seudónimo solo debe tener caracteres alfanuméricos!"
+  email_already_taken: "¡Este correo electrónico ya está tomado por otro usuario!"
   pseudonym_already_taken: "¡Este seudónimo ya está tomado por otro usuario!"
 firebase:
   errors:

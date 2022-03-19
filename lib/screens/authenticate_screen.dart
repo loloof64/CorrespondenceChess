@@ -45,14 +45,27 @@ class _AuthenticateScreenState extends State<AuthenticateScreen> {
       return;
     }
 
-    final pseudonymTaken =
-        await AllUsersDatabaseService().isAlreadyRegisteredPseudonym(pseudonym);
-    if (pseudonymTaken && _registerMode) {
-      setState(() {
-        _error = FlutterI18n.translate(
-          context,
-          'signin_screen.pseudonym_already_taken',
+    final valuesAlreadyTaken = await AllUsersDatabaseService()
+        .checkForValuesAlreadyRegistered(
+            {'email': email, 'pseudonym': pseudonym});
+    if (valuesAlreadyTaken.isNotEmpty && _registerMode) {
+      List<String> errorsList = [];
+
+      if (valuesAlreadyTaken.contains('email')) {
+        errorsList.add(
+          FlutterI18n.translate(context, 'signin_screen.email_already_taken'),
         );
+      }
+
+      if (valuesAlreadyTaken.contains('pseudonym')) {
+        errorsList.add(
+          FlutterI18n.translate(
+              context, 'signin_screen.pseudonym_already_taken'),
+        );
+      }
+
+      setState(() {
+        _error = errorsList.join('\n');
       });
       return;
     }

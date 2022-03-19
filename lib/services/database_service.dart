@@ -60,16 +60,18 @@ class AllUsersDatabaseService {
     );
   }
 
-  Future<bool> isAlreadyRegisteredPseudonym(String pseudonym) async {
-    bool isTaken = false;
+  Future<List<String>> checkForValuesAlreadyRegistered(
+      Map<String, String> valuesToCheck) async {
+    List<String> takenValues = [];
     final querySnapshot =
         await FirebaseFirestore.instance.collection('users').get();
     for (final doc in querySnapshot.docs) {
-      if (doc.data()['pseudonym'] == pseudonym) {
-        isTaken = true;
-        break;
+      for (final parameterKey in valuesToCheck.keys) {
+        if (doc.data()[parameterKey] == valuesToCheck[parameterKey]) {
+          takenValues.add(parameterKey);
+        }
       }
     }
-    return isTaken;
+    return takenValues;
   }
 }
