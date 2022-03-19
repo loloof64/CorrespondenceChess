@@ -9,7 +9,7 @@ class StartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<AppUser?>(context);
+    final user = Provider.of<SimpleUserData?>(context);
     if (user == null) {
       return const AuthenticateScreen();
     } else {

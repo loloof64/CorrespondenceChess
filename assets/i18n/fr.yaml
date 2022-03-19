@@ -12,6 +12,11 @@ signin_screen:
   password_hint: "Votre mot de passe"
   connect: "Se connecter"
   register: "S'enregistrer"
+  pseudonym_field: "Votre pseudonyme"
+  pseudonym_hint: "Pseudonyme"
+  pseudonym_too_short: "Le pseudonyme doit avoir au moins 4 caractères !"
+  pseudonym_alphanumeric_required: "Le pseudonyme ne doit contenir que des caractères alphanumériques !"
+
 firebase:
   errors:
     empty_field: "Champ vide !"
@@ -21,6 +26,7 @@ firebase:
     already_registered_user: "Un(e) utilisateur(trice) est déjà enregistré(e) avec le même email !"
     wrong_password: "Mot de passe incorrect !"
 home_screen:
-  title: "Votre espace ({nickname})"
+  title: "Votre espace ({pseudonym})"
   logout_confirmation_title: "Déconnexion ?"
   logout_confirmation_message: "Souhaitez-vous vous déconnecter ?"
+  unknown_pseudonym: "[Pseudonyme inconnu]"

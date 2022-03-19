@@ -12,6 +12,10 @@ signin_screen:
   password_hint: "Su clave"
   connect: "Conectar"
   register: "Registrarse"
+  pseudonym_field: "Su seudónimo"
+  pseudonym_hint: "Seudónimo"
+  pseudonym_too_short: "¡El seudónimo debe tener al menos 4 caracteres!"
+  pseudonym_alphanumeric_required: "¡El seudónimo solo debe tener caracteres alfanuméricos!"
 firebase:
   errors:
     empty_field: "¡Campo vacío!"
@@ -21,6 +25,7 @@ firebase:
     already_registered_user: "¡Un usuario con el mismo correo electrónico ya está registrado!"
     wrong_password: "¡Contraseña incorrecta!"
 home_screen:
-  title: "Su espacio ({nickname})"
+  title: "Su espacio ({pseudonym})"
   logout_confirmation_title: "¿Cerrar sesión?"
   logout_confirmation_message: "¿Desea cerrar sesión?"
+  unknown_pseudonym: "[Seudónimo desconocido]"

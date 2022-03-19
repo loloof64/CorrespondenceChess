@@ -12,6 +12,10 @@ signin_screen:
   password_hint: "Your password"
   connect: "Connect"
   register: "Register"
+  pseudonym_field: "Your pseudonym"
+  pseudonym_hint: "Pseudonym"
+  pseudonym_too_short: "Pseudonym must have at least 4 characters !"
+  pseudonym_alphanumeric_required: "Pseudonym must only have alphanumeric characters !"
 firebase:
   errors:
     empty_field: "Empty field !"
@@ -21,6 +25,7 @@ firebase:
     already_registered_user: "A user with the same email is already registered !"
     wrong_password: "Wrong password !"
 home_screen:
-  title: "Your space ({nickname})"
+  title: "Your space ({pseudonym})"
   logout_confirmation_title: "Logout ?"
   logout_confirmation_message: "Do you want to log out ?"
+  unknown_pseudonym: "[Unknown pseudonym]"

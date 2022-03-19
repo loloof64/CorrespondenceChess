@@ -6,8 +6,10 @@ import 'package:flutter_i18n/flutter_i18n.dart';
 class AuthenticationService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  AppUser? _userFromFirebase(User? user) {
-    return user != null ? AppUser(uid: user.uid, email: user.email!) : null;
+  SimpleUserData? _userFromFirebase(User? user) {
+    return user != null
+        ? SimpleUserData(uid: user.uid, email: user.email!)
+        : null;
   }
 
   String _authExceptionToMessage(
@@ -44,7 +46,7 @@ class AuthenticationService {
     }
   }
 
-  Stream<AppUser?> get user {
+  Stream<SimpleUserData?> get user {
     return _auth.authStateChanges().map(_userFromFirebase);
   }
 
@@ -65,13 +67,12 @@ class AuthenticationService {
   Future registerWithEmailAndPassword(
       {required String email,
       required String password,
+      required String pseudonym,
       required BuildContext context}) async {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
-      User? user = result.user;
-
-      // TODO store new user in Firestore
+      User user = result.user!;
 
       return _userFromFirebase(user);
     } on FirebaseAuthException catch (exception) {

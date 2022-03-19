@@ -13,6 +13,7 @@ class AuthenticateScreen extends StatefulWidget {
 class _AuthenticateScreenState extends State<AuthenticateScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _pseudonymController = TextEditingController();
   bool _registerMode = false;
   final _authService = AuthenticationService();
   String? _error;
@@ -21,6 +22,27 @@ class _AuthenticateScreenState extends State<AuthenticateScreen> {
   Future<void> _authenticateUser() async {
     final email = _emailController.text;
     final password = _passwordController.text;
+    final pseudonym = _pseudonymController.text;
+
+    if (pseudonym.length < 4 && _registerMode) {
+      setState(() {
+        _error = FlutterI18n.translate(
+          context,
+          'signin_screen.pseudonym_too_short',
+        );
+      });
+      return;
+    }
+
+    if (!RegExp(r'^[a-zA-Z0-9]+$').hasMatch(pseudonym) && _registerMode) {
+      setState(() {
+        _error = FlutterI18n.translate(
+          context,
+          'signin_screen.pseudonym_alphanumeric_required',
+        );
+      });
+      return;
+    }
 
     setState(() {
       _error = null;
@@ -29,9 +51,18 @@ class _AuthenticateScreenState extends State<AuthenticateScreen> {
 
     final result = _registerMode
         ? await _authService.registerWithEmailAndPassword(
-            email: email, password: password, context: context)
+            email: email,
+            password: password,
+            pseudonym: pseudonym,
+            context: context)
         : await _authService.signInWithEmailAndPassword(
             email: email, password: password, context: context);
+
+    /*
+    In register mode we may have already have exited screen when the next setState
+    calls "happen".
+    */
+    if (_registerMode) return;
 
     setState(() {
       _loading = false;
@@ -88,6 +119,21 @@ class _AuthenticateScreenState extends State<AuthenticateScreen> {
                       ),
                     ),
                   ),
+                  _registerMode
+                      ? TextField(
+                          controller: _pseudonymController,
+                          decoration: InputDecoration(
+                            labelText: FlutterI18n.translate(
+                              context,
+                              'signin_screen.pseudonym_field',
+                            ),
+                            hintText: FlutterI18n.translate(
+                              context,
+                              'signin_screen.pseudonym_hint',
+                            ),
+                          ),
+                        )
+                      : const SizedBox(),
                   PasswordField(
                     controller: _passwordController,
                     labelText: FlutterI18n.translate(

@@ -1,6 +1,7 @@
 import 'package:correspondence_chess/components/dialog_button.dart';
 import 'package:correspondence_chess/models/user.dart';
 import 'package:correspondence_chess/services/authentication_service.dart';
+import 'package:correspondence_chess/services/database_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:provider/provider.dart';
@@ -40,25 +41,33 @@ class HomeScreen extends StatelessWidget {
           });
     }
 
-    final user = Provider.of<AppUser?>(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: I18nText(
-          'home_screen.title',
-          translationParams: {
-            "nickname": user!.email,
-          },
-        ),
-        actions: [
-          IconButton(
-            onPressed: _logOut,
-            icon: const Icon(Icons.power_settings_new),
+    final simpleUserData = Provider.of<SimpleUserData?>(context);
+    return StreamProvider<CompleteUserData?>.value(
+      value: SingleUserDatabaseService(uid: simpleUserData!.uid).user,
+      initialData: null,
+      child: Consumer<CompleteUserData?>(
+        builder: (ctx, userData, child) => Scaffold(
+          appBar: AppBar(
+            title: I18nText(
+              'home_screen.title',
+              translationParams: {
+                "pseudonym": userData?.pseudonym ??
+                    FlutterI18n.translate(
+                        context, 'home_screen.unknown_pseudonym'),
+              },
+            ),
+            actions: [
+              IconButton(
+                onPressed: _logOut,
+                icon: const Icon(Icons.power_settings_new),
+              ),
+            ],
           ),
-        ],
-      ),
-      body: const Center(
-        child: Text(
-          'You are connected.',
+          body: const Center(
+            child: Text(
+              'You are connected.',
+            ),
+          ),
         ),
       ),
     );
