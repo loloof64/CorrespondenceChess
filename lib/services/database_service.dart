@@ -59,4 +59,17 @@ class AllUsersDatabaseService {
       pseudonym: data['pseudonym'],
     );
   }
+
+  Future<bool> isAlreadyRegisteredPseudonym(String pseudonym) async {
+    bool isTaken = false;
+    final querySnapshot =
+        await FirebaseFirestore.instance.collection('users').get();
+    for (final doc in querySnapshot.docs) {
+      if (doc.data()['pseudonym'] == pseudonym) {
+        isTaken = true;
+        break;
+      }
+    }
+    return isTaken;
+  }
 }

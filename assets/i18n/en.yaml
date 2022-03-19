@@ -16,6 +16,7 @@ signin_screen:
   pseudonym_hint: "Pseudonym"
   pseudonym_too_short: "Pseudonym must have at least 4 characters !"
   pseudonym_alphanumeric_required: "Pseudonym must only have alphanumeric characters !"
+  pseudonym_already_taken: "This pseudonym is already taken by another user !"
 firebase:
   errors:
     empty_field: "Empty field !"

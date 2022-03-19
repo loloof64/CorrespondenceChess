@@ -1,3 +1,4 @@
+import 'package:correspondence_chess/services/database_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import '../components/password_field.dart';
@@ -39,6 +40,18 @@ class _AuthenticateScreenState extends State<AuthenticateScreen> {
         _error = FlutterI18n.translate(
           context,
           'signin_screen.pseudonym_alphanumeric_required',
+        );
+      });
+      return;
+    }
+
+    final pseudonymTaken =
+        await AllUsersDatabaseService().isAlreadyRegisteredPseudonym(pseudonym);
+    if (pseudonymTaken && _registerMode) {
+      setState(() {
+        _error = FlutterI18n.translate(
+          context,
+          'signin_screen.pseudonym_already_taken',
         );
       });
       return;
@@ -108,6 +121,7 @@ class _AuthenticateScreenState extends State<AuthenticateScreen> {
                   ),
                   TextField(
                     controller: _emailController,
+                    keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       labelText: FlutterI18n.translate(
                         context,
